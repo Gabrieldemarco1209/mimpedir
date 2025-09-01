@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mimpedir/tela_home.dart';
 import 'usuario.dart';
+import 'banco/usuario_dao.dart';
 
 class TelaLogin extends StatelessWidget{
   TelaLogin({super.key});
@@ -8,12 +9,12 @@ class TelaLogin extends StatelessWidget{
   final TextEditingController usuarioController = TextEditingController();
   final TextEditingController senhaController = TextEditingController();
 
-      Usuario u = Usuario(
+      /*Usuario u = Usuario(
       codigo: 456,
       senha: 'cosmic',
       login: 'fire',
       nome: 'boss'
-  );
+  /); */
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +35,17 @@ class TelaLogin extends StatelessWidget{
               obscureText: true,
             ),
             const SizedBox(height: 40),
-            ElevatedButton(onPressed: (){
-              if(u.login == usuarioController.text && u.senha == senhaController.text){
+            ElevatedButton(onPressed: ()async{
+
+              final sucesso = await UsuarioDAO.autenticar(usuarioController.text, senhaController.text);
+
+
+              if(sucesso){
               Navigator.push(context, MaterialPageRoute(builder: (context) => TelaHome())
               );
               }else {
                 ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Login: ${usuarioController
-                        .text} senha: ${senhaController.text}"))
+                    SnackBar(content: Text("Login ou senha invalidos"))
                 );
               }
             }, child: Text("Login"))
