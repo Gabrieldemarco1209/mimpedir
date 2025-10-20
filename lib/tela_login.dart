@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mimpedir/tela_home.dart';
 import 'usuario.dart';
-import 'banco/usuario_dao.dart';
+import'banco/usuario_dao.dart';
 
 class TelaLogin extends StatelessWidget{
   TelaLogin({super.key});
@@ -9,49 +9,44 @@ class TelaLogin extends StatelessWidget{
   final TextEditingController usuarioController = TextEditingController();
   final TextEditingController senhaController = TextEditingController();
 
-      /*Usuario u = Usuario(
-      codigo: 456,
-      senha: 'cosmic',
-      login: 'fire',
-      nome: 'boss'
-  /); */
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Tela de Login")),
-        body: Padding(padding: const EdgeInsets.all(24.0),
+      appBar: AppBar(title: const Text("Tela de Login")),
+      body: Padding(padding: const EdgeInsets.all(24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
               decoration: const InputDecoration(labelText: 'Usuário'),
-              controller: usuarioController,
+              controller: usuarioController
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 20),
             TextField(
               decoration: const InputDecoration(labelText: 'Senha'),
-              controller: senhaController,
               obscureText: true,
+              controller: senhaController,
             ),
             const SizedBox(height: 40),
-            ElevatedButton(onPressed: ()async{
+            ElevatedButton(onPressed: () async{
 
               final sucesso = await UsuarioDAO.autenticar(usuarioController.text, senhaController.text);
 
-
-              if(sucesso){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => TelaHome())
-              );
-              }else {
+              if (sucesso) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => TelaHome())
+                  );
+              }else{
                 ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Login ou senha invalidos"))
+                    SnackBar(content: Text("Login ou senha inválidos!!!"))
                 );
               }
             }, child: Text("Login"))
           ],
-        ),
-        )
+      ),
+      )
     );
   }
 }
