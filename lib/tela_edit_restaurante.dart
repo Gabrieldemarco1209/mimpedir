@@ -33,7 +33,7 @@ class TelaEditRestauranteState extends State<TelaEditRestaurante> {
     cdController.text = TelaEditRestaurante.restaurante.codigo.toString()!;
     nomeController.text = TelaEditRestaurante.restaurante.nomeRestaurante!;
     latitudeController.text = TelaEditRestaurante.restaurante.latitude.toString()!;
-    longitudeController.text = TelaEditRestaurante.restaurante.longitude.toString()!;
+    longitudeController.text = TelaEditRestaurante.restaurante.longitude.toString();
     tipoCulinaria = TelaEditRestaurante.restaurante.TipodeCulinaria?.codigo!;
     culinariaSelecionada = TelaEditRestaurante.restaurante.TipodeCulinaria?.nome!;
   }

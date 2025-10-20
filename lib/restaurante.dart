@@ -5,7 +5,7 @@ import 'usuario.dart';
 import 'banco/usuario_dao.dart';
 
 
-class Restaurante{
+class Restaurante {
   int? _codigo;
   String? _nomeRestaurante;
   String? _latitude;
@@ -14,29 +14,39 @@ class Restaurante{
   Tipo? _tipodeCulinaria;
 
   int? get codigo => _codigo;
+
   String? get nomeRestaurante => _nomeRestaurante;
+
   String? get nomelatitude => _latitude;
+
   String? get nomelongitude => _longitude;
+
   Usuario? get proprietario => _proprietario;
+
   Tipo? get TipodeCulinaria => _tipodeCulinaria;
 
   set codigo(int? valor) => _codigo = valor;
+
   set nome(String? valor) => _nomeRestaurante = valor;
+
   set longitude(String? valor) => _longitude = valor;
+
   set latitude(String? valor) => _latitude = valor;
+
   set proprietario(Usuario? valor) => _proprietario = valor;
+
   set TipodeCulinaria(Tipo? valor) => _tipodeCulinaria = valor;
 
 
   Restaurante({
     int? codigo,
     String? nomeRestaurante,
-     String? latitude,
+    String? latitude,
     String? longitude,
     Usuario? proprietario,
     Tipo? tipodeCulinaria,
 
-  }){
+  }) {
     _codigo = codigo;
     _nomeRestaurante = nomeRestaurante;
     _latitude = latitude;
@@ -44,7 +54,7 @@ class Restaurante{
     _proprietario = proprietario;
     _tipodeCulinaria = tipodeCulinaria;
   }
-
+}
   //get nome => null; Foi Trocado por "nomeRestaurante".
   //get codigo => null; Foi acrescentado em baixo.
 
@@ -72,8 +82,3 @@ class Restaurante{
   set codigo(int? value){ _codigo = value;
   }
 }*/
-
-
-
-
-
