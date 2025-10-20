@@ -13,17 +13,42 @@ class Restaurante{
   Usuario? _proprietario;
   Tipo? _tipodeCulinaria;
 
-  Restaurante({int? codigo, String? nomeRestaurante, latitude, longitude}){
+  int? get codigo => _codigo;
+  String? get nomeRestaurante => _nomeRestaurante;
+  String? get nomelatitude => _latitude;
+  String? get nomelongitude => _longitude;
+  Usuario? get proprietario => _proprietario;
+  Tipo? get TipodeCulinaria => _tipodeCulinaria;
+
+  set codigo(int? valor) => _codigo = valor;
+  set nome(String? valor) => _nomeRestaurante = valor;
+  set longitude(String? valor) => _longitude = valor;
+  set latitude(String? valor) => _latitude = valor;
+  set proprietario(Usuario? valor) => _proprietario = valor;
+  set TipodeCulinaria(Tipo? valor) => _tipodeCulinaria = valor;
+
+
+  Restaurante({
+    int? codigo,
+    String? nomeRestaurante,
+     String? latitude,
+    String? longitude,
+    Usuario? proprietario,
+    Tipo? tipodeCulinaria,
+
+  }){
     _codigo = codigo;
     _nomeRestaurante = nomeRestaurante;
     _latitude = latitude;
     _longitude = longitude;
+    _proprietario = proprietario;
+    _tipodeCulinaria = tipodeCulinaria;
   }
 
   //get nome => null; Foi Trocado por "nomeRestaurante".
   //get codigo => null; Foi acrescentado em baixo.
 
-  String? get latitude => _latitude;
+  /* String? get latitude => _latitude;
 
   set latitude(String? value){
     _latitude = value;
@@ -42,76 +67,13 @@ class Restaurante{
   }
 
   int? get codigo => _codigo;
+
+  get nome => null;
   set codigo(int? value){ _codigo = value;
   }
-}
-
-
-
-
-
-
-
-
-
-
-/*import 'package:flutter/material.dart';
-
-class TelarRestaurante extends StatelessWidget{
-  TelaRestaurante({super.key});
-
-  // ATIVIDADE - Em Andamento...
-
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(title: const Text("Restaurante")),
-      body: Padding(padding: const EdgeInsets.all(30),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Informações do Restaurante: "),
-              SizedBox(height:40),
-              Text("Tipo de comida: "),
-              DropdownButtonFormField(
-                  items: [
-                    DropdownMenuItem(value: "Japonesa", child: Text("Japonesa")),
-                    DropdownMenuItem(value: "Italiana", child: Text("Italiana")),
-                    DropdownMenuItem(value: "Brasileira", child: Text("Brasileira")),
-                  ],
-                  onChanged: (value){}),
-
-              /*   |
-                   |
-                   V
-              Formas de texto para Editar algumas informações*/
-
-              TextFormField(
-                decoration: const InputDecoration(hintText: 'Código do Restaurante'),
-                validator: (String? value) {},
-              ),
-              TextFormField(
-                decoration: const InputDecoration(hintText: 'Nome do Restaurante'),
-                validator: (String? value) {},
-              ),
-              TextFormField(
-                decoration: const InputDecoration(hintText: 'Latitude'),
-                validator: (String? value) {},
-              ),
-              TextFormField(
-                decoration: const InputDecoration(hintText: 'Longitude'),
-                validator: (String? value) {},
-              ),
-              ElevatedButton(onPressed: (){}, child:Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.save),
-                  Text("Salvar")
-                ],
-              ))
-            ]
-        ),
-      ),
-    );
-  }
 }*/
+
+
+
+
+
